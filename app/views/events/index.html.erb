@@ -1,0 +1,71 @@
+  
+ <h3> Smithsonian Events </h3>
+
+   <% @events.limit(10).each do |event| %>
+     
+   <div class="panel panel-default">
+	  <div class="panel-heading"><%=link_to event.title, event%></div>
+	  <div class="panel-body" style="display:none;">
+	   <div class="row">
+        <b> Date: </b><%=event.timings %>
+       </div>
+        <div class="row">
+        <b>Category:  </b><%=event.categories%>
+        </div>
+         <div class="row">
+        <b>Location: </b><%=event.eventlocation%>
+       </div>
+         <div class="row">
+         <b> Cost: </b><%=raw event.cost%><br/>
+       </div>
+         <div class="row">
+         <b>Sponser: </b><%= event.sponser%>
+        </div>
+        <%if event.venue.present?%>
+        <div class="row">
+         <b>Venue: </b><%= event.venue %>
+        </div>
+        <%end%>
+        <div class="row">
+         <b>Details: </b><%=raw event.details%>
+        </div>
+        
+	  </div>
+	</div>
+  
+<%end%>
+
+
+<h3> Arts at Emory </h3>
+
+   <% @events.last(10).each do |event| %>
+     
+   <div class="panel panel-default">
+	  <div class="panel-heading" style="background:black;"><%=link_to event.title, event,:style => "color:#fff;"%></div>
+	  <div class="panel-body" style="display:none;">
+	   <div class="row">
+        <b> Date: </b><%=event.timings %>
+       </div>
+        <div class="row">
+        <b>Category:  </b><%=event.categories%>
+        </div>
+         <div class="row">
+        <b>Location: </b><%=event.eventlocation%>
+       </div>
+         <div class="row">
+         <b> Cost: </b><%=raw event.cost%><br/>
+       </div>
+         
+        <%if event.venue.present?%>
+        <div class="row">
+         <b>Venue: </b><%= event.venue %>
+        </div>
+        <%end%>
+        <div class="row">
+         <b>Details: </b><%=raw event.details%>
+        </div>
+        
+	  </div>
+	</div>
+  
+<%end%>

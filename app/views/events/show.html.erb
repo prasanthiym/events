@@ -1,0 +1,33 @@
+<h3> <%=@event.title%> </h3>
+     
+   <div class="panel panel-default" style="padding:5px;">
+	 <div class="panel-body" >
+	   <div class="row">
+        <b> Date: </b><%=@event.timings %>
+       </div>
+        <div class="row">
+        <b>Category:  </b><%=@event.categories%>
+        </div>
+         <div class="row">
+        <b>Location: </b><%=@event.eventlocation%>
+       </div>
+         <div class="row">
+         <b> Cost: </b><%=raw @event.cost%><br/>
+       </div>
+        <%if @event.sponser.present?%>
+         <div class="row">
+         <b>Sponser: </b><%= @event.sponser%>
+        </div>
+        <%end%>
+        <%if @event.venue.present?%>
+        <div class="row">
+         <b>Venue: </b><%= @event.venue %>
+        </div>
+        <%end%>
+        <div class="row">
+         <b>Details: </b><%=raw @event.details%>
+        </div>
+        
+	  </div>
+	</div>
+
